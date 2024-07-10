@@ -1,4 +1,21 @@
 <div class="container">
+  <form>
+    <div>
+      <label for="inputWish">Wish</label>
+      <input
+        type="text"
+        name="inputWish"
+        id="inputWish"
+        [(ngModel)]="newWish"
+      />
+    </div>
+    <div>
+      <button type="submit" (click)="$event.preventDefault(); addNewWish()">
+        Add Wish
+      </button>
+    </div>
+  </form>
+
   <div *ngIf="wishList.length === 0; then noItems; else showResults"></div>
 
   <ng-template #noItems> There are no wishes to display </ng-template>

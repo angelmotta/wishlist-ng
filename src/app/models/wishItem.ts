@@ -1,5 +1,5 @@
 export interface WishItem {
-  id: number;
+  id?: number;
   wish: string;
   isComplete: boolean;
 }

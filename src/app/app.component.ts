@@ -9,11 +9,13 @@ import { WishItem } from './models/wishItem';
 export class AppComponent {
   title = 'wishlist';
   wishList: WishItem[] = [
-    { id: 1, wish: 'Learn Angular', isComplete: true },
-    { id: 2, wish: 'Learn Spring Boot', isComplete: false },
-    { id: 3, wish: 'Get a cup of coffee', isComplete: true },
+    // { id: 1, wish: 'Learn Angular', isComplete: true },
+    // { id: 2, wish: 'Learn Spring Boot', isComplete: false },
+    // { id: 3, wish: 'Get a cup of coffee', isComplete: true },
   ];
   // wishList: WishItem[] = [];
+
+  newWish = '';
 
   toggleWish(wishObj: WishItem) {
     console.log(`clicked`);
@@ -22,5 +24,14 @@ export class AppComponent {
     wishObj.isComplete = !wishObj.isComplete;
     console.log(wishObj);
     console.log(`end`);
+  }
+
+  addNewWish() {
+    const newUserWish: WishItem = {
+      wish: this.newWish,
+      isComplete: false,
+    };
+    this.wishList.push(newUserWish);
+    this.newWish = '';
   }
 }
