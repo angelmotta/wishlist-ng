@@ -16,25 +16,44 @@
     </div>
   </form>
 
-  <div *ngIf="wishList.length === 0; then noItems; else showResults"></div>
+  <div>
+    <div>
+      <select
+        name="status-wishes"
+        id="select-status"
+        [(ngModel)]="filterStatus"
+        (ngModelChange)="handleFilterChange()"
+      >
+        <option value="0">All</option>
+        <option value="1">Unfulfilled</option>
+        <option value="2">Fulfilled</option>
+      </select>
+    </div>
+  </div>
 
-  <ng-template #noItems> There are no wishes to display </ng-template>
+  <div class="list-wishes-container">
+    <div
+      *ngIf="filteredList.length === 0; then noItems; else showResults"
+    ></div>
 
-  <ng-template #showResults>
-    <ul class="wish-list">
-      <li *ngFor="let wishObj of wishList; index as ii">
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              [checked]="wishObj.isComplete"
-              [attr.elem-index]="ii"
-              (click)="toggleWish(wishObj)"
-            />
-            {{ wishObj.wish }}
-          </label>
-        </div>
-      </li>
-    </ul>
-  </ng-template>
+    <ng-template #noItems> There are no wishes to display </ng-template>
+
+    <ng-template #showResults>
+      <ul class="wish-list">
+        <li *ngFor="let wishObj of filteredList; index as ii">
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                [checked]="wishObj.isComplete"
+                [attr.elem-index]="ii"
+                (click)="toggleWish(wishObj)"
+              />
+              {{ wishObj.wish }}
+            </label>
+          </div>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
 </div>
