@@ -14,4 +14,13 @@ export class AppComponent {
     { id: 3, wish: 'Get a cup of coffee', isComplete: true },
   ];
   // wishList: WishItem[] = [];
+
+  toggleWish(wishObj: WishItem) {
+    console.log(`clicked`);
+    console.log(`init`);
+    console.log(wishObj);
+    wishObj.isComplete = !wishObj.isComplete;
+    console.log(wishObj);
+    console.log(`end`);
+  }
 }

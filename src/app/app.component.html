@@ -12,6 +12,7 @@
               type="checkbox"
               [checked]="wishObj.isComplete"
               [attr.elem-index]="ii"
+              (click)="toggleWish(wishObj)"
             />
             {{ wishObj.wish }}
           </label>
