@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="list-wishes-container">
+  <!-- <div class="list-wishes-container">
     <div
       *ngIf="filteredList.length === 0; then noItems; else showResults"
     ></div>
@@ -54,7 +54,11 @@
         </li>
       </ul>
     </ng-template>
-  </div>
+  </div> -->
+  <app-wish-list
+    [wishList]="filteredList"
+    [toggleWishStatus]="toggleWish"
+  ></app-wish-list>
 </div>
 
 <!-- (ngModelChange)="handleFilterChange()" -->
