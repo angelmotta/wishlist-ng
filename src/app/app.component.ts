@@ -33,19 +33,8 @@ export class AppComponent {
   newWish = '';
   filterStatus = '0';
 
-  addNewWish() {
-    if (!this.newWish) {
-      alert(`wish can not be blank`);
-      return;
-    }
-    const newUserWish: WishItem = {
-      wish: this.newWish,
-      isComplete: false,
-    };
+  addNewWish(newUserWish: WishItem) {
     this.wishList.push(newUserWish);
-    this.newWish = '';
-    // Update filtered elements
-    // this.handleFilterChange();
   }
 
   // handleFilterChange() {
