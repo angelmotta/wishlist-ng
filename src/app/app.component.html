@@ -22,7 +22,6 @@
         name="status-wishes"
         id="select-status"
         [(ngModel)]="filterStatus"
-        (ngModelChange)="handleFilterChange()"
       >
         <option value="0">All</option>
         <option value="1">Unfulfilled</option>
@@ -57,3 +56,5 @@
     </ng-template>
   </div>
 </div>
+
+<!-- (ngModelChange)="handleFilterChange()" -->
