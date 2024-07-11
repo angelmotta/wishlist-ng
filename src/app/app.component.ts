@@ -33,16 +33,6 @@ export class AppComponent {
   newWish = '';
   filterStatus = '0';
 
-  toggleWish(wishObj: WishItem) {
-    console.log(`clicked`);
-    console.log(wishObj);
-    wishObj.isComplete = !wishObj.isComplete;
-    console.log(wishObj);
-    console.log(`end`);
-    // Update filtered elements
-    // this.handleFilterChange();
-  }
-
   addNewWish() {
     if (!this.newWish) {
       alert(`wish can not be blank`);

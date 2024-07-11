@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { WishItem } from '../models/wishItem';
+import { WishItem } from 'src/app/models/wishItem';
 
 @Component({
   selector: 'app-wish-list',
@@ -8,9 +8,12 @@ import { WishItem } from '../models/wishItem';
 })
 export class WishListComponent {
   @Input({ required: true }) wishList: WishItem[] = [];
-  @Input({ required: true }) toggleWishStatus!: (wishObj: WishItem) => void;
 
-  updateStatus(wishObj: WishItem): void {
-    this.toggleWishStatus(wishObj);
+  toggleWishStatus(wishObj: WishItem) {
+    console.log(`clicked`);
+    console.log(wishObj);
+    wishObj.isComplete = !wishObj.isComplete;
+    console.log(wishObj);
+    console.log(`end`);
   }
 }
