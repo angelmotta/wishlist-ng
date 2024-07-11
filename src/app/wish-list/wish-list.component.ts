@@ -8,12 +8,4 @@ import { WishItem } from 'src/app/models/wishItem';
 })
 export class WishListComponent {
   @Input({ required: true }) wishList: WishItem[] = [];
-
-  toggleWishStatus(wishObj: WishItem) {
-    console.log(`clicked`);
-    console.log(wishObj);
-    wishObj.isComplete = !wishObj.isComplete;
-    console.log(wishObj);
-    console.log(`end`);
-  }
 }

@@ -6,9 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { WishListComponent } from './wish-list/wish-list.component';
 import { AddWishComponent } from './add-wish/add-wish.component';
 import { WishFilterComponent } from './wish-filter/wish-filter.component';
+import { WishElementComponent } from './wish-element/wish-element.component';
 
 @NgModule({
-  declarations: [AppComponent, WishListComponent, AddWishComponent, WishFilterComponent],
+  declarations: [AppComponent, WishListComponent, AddWishComponent, WishFilterComponent, WishElementComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

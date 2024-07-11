@@ -5,19 +5,11 @@
 
   <ng-template #showResults>
     <ul class="wish-list">
-      <li *ngFor="let wishObj of wishList; index as ii">
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              [checked]="wishObj.isComplete"
-              [attr.elem-index]="ii"
-              (click)="toggleWishStatus(wishObj)"
-            />
-            {{ wishObj.wish }}
-          </label>
-        </div>
-      </li>
+      <app-wish-element
+        *ngFor="let wishObj of wishList"
+        [wishText]="wishObj.wish"
+        [(isFulfilled)]="wishObj.isComplete"
+      ></app-wish-element>
     </ul>
   </ng-template>
 </div>
