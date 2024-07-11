@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-wish-filter',
@@ -6,10 +6,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./wish-filter.component.css'],
 })
 export class WishFilterComponent {
-  filterStatus = '0';
-  @Output() filterStatusEvent = new EventEmitter<string>();
+  @Input() filterStatus!: string;
+  @Output() filterStatusChange = new EventEmitter<string>();
 
-  sendFilterStatusEvent(filterSelection: string) {
-    this.filterStatusEvent.emit(filterSelection);
+  handleFilterStatusChange(filterSelection: string) {
+    console.log(`update filter selection: ${filterSelection}`);
+    this.filterStatusChange.emit(filterSelection);
   }
 }

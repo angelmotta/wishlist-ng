@@ -3,7 +3,7 @@
     name="status-wishes"
     id="select-status"
     [(ngModel)]="filterStatus"
-    (ngModelChange)="sendFilterStatusEvent($event)"
+    (ngModelChange)="handleFilterStatusChange($event)"
   >
     <option value="0">All</option>
     <option value="1">Unfulfilled</option>

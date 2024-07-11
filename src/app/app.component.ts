@@ -15,11 +15,6 @@ export class AppComponent {
   ];
   filterSelected = '0';
 
-  updateFilterSection(selection: string) {
-    console.log(`update filter selection: ${selection}`);
-    this.filterSelected = selection;
-  }
-
   getFilteredList() {
     if (this.filterSelected === '0') {
       // All selected

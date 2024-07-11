@@ -1,9 +1,7 @@
 <div class="container">
   <app-add-wish (addNewWish)="addNewWish($event)"> </app-add-wish>
   <div>
-    <app-wish-filter
-      (filterStatusEvent)="updateFilterSection($event)"
-    ></app-wish-filter>
+    <app-wish-filter [(filterStatus)]="filterSelected"></app-wish-filter>
   </div>
 
   <app-wish-list [wishList]="getFilteredList()"></app-wish-list>
