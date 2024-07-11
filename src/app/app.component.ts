@@ -13,15 +13,21 @@ export class AppComponent {
     { id: 2, wish: 'Learn Spring Boot', isComplete: false },
     { id: 3, wish: 'Get a cup of coffee', isComplete: true },
   ];
-  // filteredList = this.wishList;
-  get filteredList() {
-    if (this.filterStatus === '0') {
+  filterSelected = '0';
+
+  updateFilterSection(selection: string) {
+    console.log(`update filter selection: ${selection}`);
+    this.filterSelected = selection;
+  }
+
+  getFilteredList() {
+    if (this.filterSelected === '0') {
       // All selected
       return this.wishList;
-    } else if (this.filterStatus === '1') {
+    } else if (this.filterSelected === '1') {
       // Unfulfilled selected
       return this.wishList.filter((wishObj) => wishObj.isComplete === false);
-    } else if (this.filterStatus === '2') {
+    } else if (this.filterSelected === '2') {
       // fullfilled selected
       return this.wishList.filter((wishObj) => wishObj.isComplete === true);
     } else {
@@ -30,8 +36,6 @@ export class AppComponent {
       return this.wishList;
     }
   }
-  newWish = '';
-  filterStatus = '0';
 
   addNewWish(newUserWish: WishItem) {
     this.wishList.push(newUserWish);

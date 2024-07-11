@@ -1,20 +1,12 @@
 <div class="container">
   <app-add-wish (addNewWish)="addNewWish($event)"> </app-add-wish>
   <div>
-    <div>
-      <select
-        name="status-wishes"
-        id="select-status"
-        [(ngModel)]="filterStatus"
-      >
-        <option value="0">All</option>
-        <option value="1">Unfulfilled</option>
-        <option value="2">Fulfilled</option>
-      </select>
-    </div>
+    <app-wish-filter
+      (filterStatusEvent)="updateFilterSection($event)"
+    ></app-wish-filter>
   </div>
 
-  <app-wish-list [wishList]="filteredList"></app-wish-list>
+  <app-wish-list [wishList]="getFilteredList()"></app-wish-list>
 </div>
 
 <!-- (ngModelChange)="handleFilterChange()" -->
