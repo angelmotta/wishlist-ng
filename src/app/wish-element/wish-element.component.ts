@@ -15,4 +15,11 @@ export class WishElementComponent {
     this.isFulfilled = !this.isFulfilled;
     this.isFulfilledChange.emit(this.isFulfilled);
   }
+
+  get cssClasses() {
+    // return ['strikeout', 'fulfilled-color'];
+    return {
+      'strikeout fulfilled-color': this.isFulfilled,
+    };
+  }
 }
