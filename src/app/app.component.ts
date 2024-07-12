@@ -27,8 +27,16 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(`ngOnInit: fetch data from API`);
-    this.apiService.getAllWishes().subscribe((data: any) => {
-      this.wishList = data; // update state variable
+    this.apiService.getAllWishes().subscribe({
+      next: (data: any) => {
+        console.log(`received data from API Service`);
+        this.wishList = data; // update state variable
+      },
+      error: (e) => {
+        console.log(`Received error from API Service`);
+        console.error(e);
+      },
+      complete: () => console.info(`Get Request Completed`),
     });
   }
 
