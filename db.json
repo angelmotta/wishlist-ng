@@ -1,0 +1,19 @@
+{
+  "wishes": [
+    {
+      "id": 1,
+      "wish": "Learn Angular framework",
+      "isComplete": true
+    },
+    {
+      "id": 2,
+      "wish": "Learn Spring Boot",
+      "isComplete": false
+    },
+    {
+      "id": 3,
+      "wish": "Get a cup of coffee",
+      "isComplete": true
+    }
+  ]
+}
