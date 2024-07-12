@@ -1,27 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WishItem } from './models/wishItem';
 import { EventService } from 'src/app/services/EventServices';
+import { ApiService } from './services/api.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'wishlist';
-  wishList: WishItem[] = [
-    { id: 1, wish: 'Learn Angular', isComplete: true },
-    { id: 2, wish: 'Learn Spring Boot', isComplete: false },
-    { id: 3, wish: 'Get a cup of coffee', isComplete: true },
-  ];
+  wishList: WishItem[] = [];
   filterSelected = '0';
 
-  constructor(private eventService: EventService) {
+  constructor(
+    private eventService: EventService,
+    private apiService: ApiService
+  ) {
     this.eventService.listen('removeWishEvent', (wishObj) => {
       //Todo: remove wish
       console.log(`AppComponent listened: removeWishEvent`);
       console.log(wishObj);
       const idxObjToDelete = this.wishList.indexOf(wishObj);
       this.wishList.splice(idxObjToDelete, 1);
+    });
+  }
+
+  ngOnInit(): void {
+    console.log(`ngOnInit: fetch data from API`);
+    this.apiService.getAllWishes().subscribe((data: any) => {
+      this.wishList = data; // update state variable
     });
   }
 
