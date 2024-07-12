@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { WishItem } from './models/wishItem';
-
+import eventService from 'src/app/services/EventServices';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +14,16 @@ export class AppComponent {
     { id: 3, wish: 'Get a cup of coffee', isComplete: true },
   ];
   filterSelected = '0';
+
+  constructor() {
+    eventService.listen('removeWishEvent', (wishObj) => {
+      //Todo: remove wish
+      console.log(`AppComponent listened: removeWishEvent`);
+      console.log(wishObj);
+      const idxObjToDelete = this.wishList.indexOf(wishObj);
+      this.wishList.splice(idxObjToDelete, 1);
+    });
+  }
 
   getFilteredList() {
     if (this.filterSelected === '0') {

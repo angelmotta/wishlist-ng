@@ -1,10 +1,12 @@
-<div class="container">
+<div class="main-container">
   <app-add-wish (addNewWish)="addNewWish($event)"> </app-add-wish>
-  <div>
+  <div class="container-wish-filter">
     <app-wish-filter [(filterStatus)]="filterSelected"></app-wish-filter>
   </div>
 
-  <app-wish-list [wishList]="getFilteredList()"></app-wish-list>
+  <div class="container-wish-list">
+    <app-wish-list [wishList]="getFilteredList()"></app-wish-list>
+  </div>
 </div>
 
 <!-- (ngModelChange)="handleFilterChange()" -->

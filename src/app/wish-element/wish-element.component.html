@@ -3,13 +3,13 @@
     <label [ngClass]="cssClasses">
       <input
         type="checkbox"
-        [checked]="isFulfilled"
+        [checked]="wishObj.isComplete"
         (click)="handleFulFilledChange()"
       />
-      {{ wishText }}
+      {{ wishObj.wish }}
     </label>
   </div>
   <div class="container-del-wish">
-    <button>Delete</button>
+    <button type="button" (click)="handleRemoveWish()">Delete</button>
   </div>
 </li>

@@ -1,1 +1,9 @@
+.container-wish-filter,
+.container-wish-list {
+  margin-left: 25%;
+  margin-right: 25%;
+}
 
+.container-wish-filter {
+  margin-top: 20px;
+}
