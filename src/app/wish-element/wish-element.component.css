@@ -5,3 +5,8 @@
 .fulfilled-color {
   color: dimgray;
 }
+
+.container-list-element {
+  display: flex;
+  justify-content: space-between;
+}

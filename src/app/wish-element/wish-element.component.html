@@ -1,10 +1,15 @@
-<li>
-  <label [ngClass]="cssClasses">
-    <input
-      type="checkbox"
-      [checked]="isFulfilled"
-      (click)="handleFulFilledChange()"
-    />
-    {{ wishText }}
-  </label>
+<li class="container-list-element">
+  <div class="container-wish-elem">
+    <label [ngClass]="cssClasses">
+      <input
+        type="checkbox"
+        [checked]="isFulfilled"
+        (click)="handleFulFilledChange()"
+      />
+      {{ wishText }}
+    </label>
+  </div>
+  <div class="container-del-wish">
+    <button>Delete</button>
+  </div>
 </li>
