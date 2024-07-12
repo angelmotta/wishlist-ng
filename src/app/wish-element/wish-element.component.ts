@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import eventService from 'src/app/services/EventServices';
+import { EventService } from 'src/app/services/EventServices';
 import { WishItem } from '../models/wishItem';
 
 @Component({
@@ -9,8 +9,8 @@ import { WishItem } from '../models/wishItem';
 })
 export class WishElementComponent {
   @Input() wishObj!: WishItem;
-  // @Input() isFulfilled!: boolean;
-  // @Output() isFulfilledChange = new EventEmitter<boolean>();
+
+  constructor(private eventService: EventService) {}
 
   handleFulFilledChange() {
     console.log(`handle fulfilled change status`);
@@ -28,6 +28,6 @@ export class WishElementComponent {
 
   handleRemoveWish() {
     console.log(`handle remove wish: emit event for --> ${this.wishObj}`);
-    eventService.emit('removeWishEvent', this.wishObj);
+    this.eventService.emit('removeWishEvent', this.wishObj);
   }
 }

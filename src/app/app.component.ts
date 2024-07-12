@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { WishItem } from './models/wishItem';
-import eventService from 'src/app/services/EventServices';
+import { EventService } from 'src/app/services/EventServices';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,8 +15,8 @@ export class AppComponent {
   ];
   filterSelected = '0';
 
-  constructor() {
-    eventService.listen('removeWishEvent', (wishObj) => {
+  constructor(private eventService: EventService) {
+    this.eventService.listen('removeWishEvent', (wishObj) => {
       //Todo: remove wish
       console.log(`AppComponent listened: removeWishEvent`);
       console.log(wishObj);
