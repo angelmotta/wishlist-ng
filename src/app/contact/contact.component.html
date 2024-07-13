@@ -3,15 +3,55 @@
     <label for="name">Your name</label>
     <input type="text" id="name" formControlName="senderName" />
   </div>
+  <div
+    *ngIf="
+      contactFormGroup.get('senderName')?.invalid &&
+      contactFormGroup.get('senderName')?.touched
+    "
+  >
+    <small *ngIf="contactFormGroup.get('senderEmail')?.hasError('required')">
+      This field is required
+    </small>
+  </div>
   <div>
     <label for="email">Your email</label>
     <input type="email" id="email" formControlName="senderEmail" />
+  </div>
+  <div
+    *ngIf="
+      contactFormGroup.get('senderEmail')?.invalid &&
+      contactFormGroup.get('senderEmail')?.touched
+    "
+  >
+    <small *ngIf="contactFormGroup.get('senderEmail')?.hasError('required')">
+      This field is required
+    </small>
+    <small *ngIf="contactFormGroup.get('senderEmail')?.hasError('email')">
+      Please enter your email address
+    </small>
   </div>
   <div>
     <label for="message">Your message</label>
     <textarea rows="3" id="message" formControlName="senderMessage"></textarea>
   </div>
+
+  <div
+    *ngIf="
+      contactFormGroup.get('senderMessage')?.invalid &&
+      contactFormGroup.get('senderMessage')?.touched
+    "
+  >
+    <small *ngIf="contactFormGroup.get('senderMessage')?.hasError('required')">
+      This field is required
+    </small>
+    <small *ngIf="contactFormGroup.get('senderMessage')?.hasError('minlength')">
+      Please your message should be at least 10 characters
+    </small>
+  </div>
+
   <div>
-    <button type="submit">Send message</button>
+    <button type="submit" [disabled]="contactFormGroup.invalid">
+      Send message
+    </button>
   </div>
 </form>
